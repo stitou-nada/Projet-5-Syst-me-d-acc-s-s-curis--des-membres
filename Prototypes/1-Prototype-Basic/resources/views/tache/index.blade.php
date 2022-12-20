@@ -1,5 +1,5 @@
 @include('layouts.head')
-<a href="" class="btn btn-primary">Ajouter</a>
+<a href="{{route('tache.create')}}" class="btn btn-primary">Ajouter</a>
 <table class="table table-striped">
     <thead>
         <tr>

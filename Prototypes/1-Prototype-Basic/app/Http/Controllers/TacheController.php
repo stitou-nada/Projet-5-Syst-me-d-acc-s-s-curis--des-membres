@@ -25,7 +25,7 @@ class TacheController extends Controller
      */
     public function create()
     {
-        //
+        return view('tache.create');
     }
 
     /**
