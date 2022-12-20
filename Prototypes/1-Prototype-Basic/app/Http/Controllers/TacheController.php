@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 class TacheController extends Controller
 {
 
+    
     public function index()
     {
         $tache = tache::all();
@@ -29,24 +30,8 @@ class TacheController extends Controller
     }
 
 
-    public function show(tache $tache)
-    {
-        //
-    }
 
 
-    public function edit(tache $tache)
-    {
-        //
-    }
-
-
-    public function update(Request $request, tache $tache)
-    {
-        //
-    }
-
-  
     public function destroy( $id)
     {
        tache::find($id)

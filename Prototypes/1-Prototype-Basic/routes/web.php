@@ -31,4 +31,10 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
-Route::resource('tache', TacheController::class)->middleware('auth');
+
+Route::get('tache', [TacheController::class,'index'])->name('tache.index');
+Route::middleware('auth')->group(function(){
+Route::get('create', [TacheController::class,'create'])->name('tache.create');
+Route::post('store', [TacheController::class,'store'])->name('tache.store');
+Route::delete('delete/{id}', [TacheController::class,'destroy'])->name('tache.destroy');
+});
