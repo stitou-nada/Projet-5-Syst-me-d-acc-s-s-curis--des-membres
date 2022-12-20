@@ -36,7 +36,10 @@ class TacheController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        tache::create([
+            "name"=>$request->name,
+        ])->save();
+        return redirect('tache');
     }
 
     /**
@@ -79,8 +82,10 @@ class TacheController extends Controller
      * @param  \App\Models\tache  $tache
      * @return \Illuminate\Http\Response
      */
-    public function destroy(tache $tache)
+    public function destroy( $id)
     {
-        //
+       tache::find($id)
+       ->delete();
+       return back();
     }
 }
