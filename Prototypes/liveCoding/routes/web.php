@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TacheController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('tache',[TacheController::class,'index']);
+Route::get('create',[TacheController::class,'create'])->name('tache.create');
+Route::post('store',[TacheController::class,'store'])->name('tache.store');
+Route::delete('delete/{id}',[TacheController::class,'delete'])->name('tache.delete');
+
+
