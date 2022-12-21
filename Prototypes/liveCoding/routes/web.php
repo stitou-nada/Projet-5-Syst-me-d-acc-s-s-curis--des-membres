@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\googleController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TacheController;
