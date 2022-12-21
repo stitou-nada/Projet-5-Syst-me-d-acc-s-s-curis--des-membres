@@ -23,7 +23,7 @@ class TacheController extends Controller
         tache::create([
             "name"=>$request->name,
         ])->save();
-        return redirect('tache');
+        return redirect('dashboard');
     }
 
 

@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\googleController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TacheController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,9 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard',[dashboardController::class,'index'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 require __DIR__.'/auth.php';
-
+Route::resource('tache',TacheController::class);
 Route::get('auth/google',[googleController::class,'redirect'])->name('google-auth');
 Route::get('auth/google/call-back',[googleController::class,'callbackGoogle'])->name('callbackGoogle');
+

@@ -27,12 +27,12 @@ class googleController extends Controller
                  "google_id"=>$google_user->getId(),
             ]);
             Auth::login($add_user);
-            return redirect()->intended('dashboard');
+            return redirect('dashboard');
 
           }
           else{
             Auth::login($user);
-            return redirect()->intended('dashboard');
+            return redirect('dashboard');
           }
        } catch (\Throwable $th) {
         //throw $th;
