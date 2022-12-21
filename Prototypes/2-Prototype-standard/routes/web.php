@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use  App\Http\Controllers\TacheController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +18,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get("/tache",[TacheController::class,'index']);
-Route::get("/create",[TacheController::class,'create'])->name('tache.create');
-Route::post("/store",[TacheController::class,'store'])->name('tache.store');;
-Route::delete("/delete/{id}",[TacheController::class,'destroy'])->name('tache.delete');;
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
