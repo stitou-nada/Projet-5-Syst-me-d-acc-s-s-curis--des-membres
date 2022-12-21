@@ -29,7 +29,7 @@ class TacheController extends Controller
 
         }
 
-    public function delete( $id)
+    public function delete($id)
     {
        tache::find($id)
        ->delete();
