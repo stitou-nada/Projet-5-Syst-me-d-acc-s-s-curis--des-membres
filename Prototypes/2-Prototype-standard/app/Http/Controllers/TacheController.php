@@ -24,10 +24,9 @@ class TacheController extends Controller
             "name"=>$request->name,
         ])->save();
         return redirect('dashboard');
-    }
 
 
-
+        }
 
     public function destroy( $id)
     {
