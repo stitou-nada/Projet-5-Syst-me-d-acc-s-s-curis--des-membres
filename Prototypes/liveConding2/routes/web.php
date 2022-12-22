@@ -31,9 +31,9 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
 Route::get('create',[TacheController::class,'create'])->name('tache.create');
 Route::post('store',[TacheController::class,'store'])->name('tache.store');
+Route::delete('delete/{id}',[TacheController::class,'delete'])->name('tache.delete');
 });
 
-Route::delete('delete/{id}',[TacheController::class,'delete'])->name('tache.delete');
 Route::get('google-auth',[googleController::class,'redirect'])->name('google-auth');
 Route::get('auth/google/callback',[googleController::class,'callbackGoogle']);
 require __DIR__.'/auth.php';
