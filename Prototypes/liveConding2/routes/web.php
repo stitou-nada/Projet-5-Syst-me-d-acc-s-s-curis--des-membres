@@ -28,9 +28,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
+Route::middleware('auth')->group(function () {
 Route::get('create',[TacheController::class,'create'])->name('tache.create');
 Route::post('store',[TacheController::class,'store'])->name('tache.store');
+});
+
 Route::delete('delete/{id}',[TacheController::class,'delete'])->name('tache.delete');
 Route::get('google-auth',[googleController::class,'redirect'])->name('google-auth');
 Route::get('auth/google/callback',[googleController::class,'callbackGoogle']);
